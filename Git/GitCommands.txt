@@ -1,0 +1,57 @@
+目的（リンク押下で詳細を確認）                                          コマンド
+作業ディレクトリでGitを使う                                             git init
+
+Gitリポジトリをクローン                                                 git clone [URL]
+
+変更をステージング                                                      git add [ファイル名]
+
+コミット（変更を記録）する                                              git commit -m "[メッセージ]"
+
+直前のコミット内容やメッセージを修正する                                git commit --amend -m "[修正したコミットメッセージ]"
+
+現在の状態を確認                                                        git status
+
+変更の差分を確認                                                        git diff
+ステージングされた変更と最後のコミットの差分表示                        git diff --staged
+現在の作業状態と最新のコミットとの差分表示                              git diff HEAD
+
+コミット履歴を見る                                                      git log
+各コミットを1行で表示                                                   git log --oneline
+ブランチの流れを視覚的に表示                                            git log --graph
+各コミットでの変更差分も表示                                            git log -p
+指定した作者のコミットのみ表示                                          git log --author="名前"
+過去2日間のコミットだけ表示（自然言語OK）                               git log --since="2.days"
+
+リモートリポジトリを登録                                                git remote add origin [URL]
+
+リモートにpush                                                          git push origin main
+初回の push（ローカルとリモートを関連付け）                             git push -u origin main
+2回目以降の push（-u 省略可）                                           git push
+
+リモートからpull                                                        git pull
+明示的に origin/ブランチ名 を指定して取得＋マージ                       git pull origin ブランチ名
+マージではなくリベースで取り込む                                        git pull --rebase
+
+ブランチを作成                                                          git branch [ブランチ名]
+ブランチ一覧を表示                                                      git branch
+ブランチを削除                                                          git branch -d ブランチ名
+強制的に削除                                                            git branch -D ブランチ名
+
+ブランチを切り替える                                                    git switch [ブランチ名]
+新しくブランチを作って、そのまま切り替え                                git switch -c ブランチ名
+
+ブランチを切り替える                                                    git checkout [ブランチ名]
+新しいブランチを作成＆切り替え                                          git checkout -b ブランチ名
+ファイルの変更を取り消す（ステージ前の状態に戻す）                      git checkout -- ファイル名
+過去のコミット状態に一時的に切り替える（閲覧目的）                      git checkout コミットID
+
+マージする（ブランチを統合）                                            git merge [ブランチ名]
+
+ローカルの変更を元に戻す                                                git restore [ファイル名]
+すべてのファイルを元に戻す                                              git restore .
+ステージングした変更（git add）を取り消す                               git restore --staged
+
+ステージングの変更を外す                                                git reset HEAD [ファイル名]
+最後のコミットを取り消したい（変更は残したい）                          git reset --soft HEAD
+ステージングだけを取り消したい（デフォルト動作）                        git reset --mixed HEAD
+すべての変更を完全に取り消す（注意！）                                  git reset --hard HEAD
